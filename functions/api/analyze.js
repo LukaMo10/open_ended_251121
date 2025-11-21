@@ -36,7 +36,7 @@ export async function onRequestPost(context) {
     // 4. 直接调用 Google REST API (最稳的方式)
     // 想要用 2.5，就把这里改成 gemini-2.5-flash (如果 Google 已开放)
     // 为了保险，先用 gemini-1.5-flash
-    const model = "gemini-1.5-flash";
+    const model = "gemini-2.5-flash";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     const response = await fetch(url, {
@@ -66,4 +66,5 @@ export async function onRequestPost(context) {
   } catch (err) {
     return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
+
 }
